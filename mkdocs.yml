@@ -1,0 +1,12 @@
+site_name: "PPS Unidad 0 - TU_NOMBRE"
+
+nav:
+  - Inicio: index.md
+  - Git: git.md
+  - GitHub Actions: gitActions.md
+  - GitHub Pages: gitPages.md
+  - Docker: docker.md
+  - Conclusiones: conclusiones.md
+
+theme:
+  name: material
