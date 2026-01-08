@@ -13,14 +13,17 @@ Pero antes de ejecutarlo, lo que debemos hacer es leer las premisas con las cual
 Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probaremos a ejecutar la app a ver si todo funciona correctamente:
 
 - Error 1: RuntimeError
+- 
   ![Runtime](images/Runtimeerror.png)
 
   Como podemos observar, aparece un RuntimeError cuando el lavadero está ocupado, mientras las premisas con las cuales se crearon la app nos indica: *Cuando se intenta hacer un lavado mientras que otro ya está en marcha, se produce una ValueError*.
 
   Para corregir este error, simplemente cambiamos ***RuntimeError*** por ***ValueError***:
+  
    ![Value](images/Valueerror.png)
   
 -  Error 2: Error en tarifas de secado a mano y encerado
+
 
 
 
