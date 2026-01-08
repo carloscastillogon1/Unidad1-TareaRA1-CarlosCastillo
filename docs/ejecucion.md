@@ -12,6 +12,9 @@ Pero antes de ejecutarlo, lo que debemos hacer es leer las premisas con las cual
 
 Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probaremos a ejecutar la app a ver si todo funciona correctamente:
 
-- Error 1: 
+- Error 1: Runtimeerror
+  ![Runtime](images/Runtimeerror.png)
+-  
+
 
 
