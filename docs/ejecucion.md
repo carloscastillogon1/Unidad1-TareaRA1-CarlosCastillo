@@ -20,7 +20,8 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
   Para corregir este error, simplemente cambiamos ***RuntimeError*** por ***ValueError***:
    ![Value](images/Valueerror.png)
   
--  
+-  Error 2: Error en tarifas de secado a mano y encerado
+
 
 
 
