@@ -1,4 +1,4 @@
-site_name: PPS Unidad 1 - Tarea RA1
+site_name: PPS Unidad 1 - Tarea RA1 - Carlos Castillo
 
 nav:
   - Inicio: index.md
@@ -8,3 +8,5 @@ nav:
   - Ejecución en Sandbox: sandbox.md
   - Reflexión: reflexion.md
 
+theme:
+  name: material
