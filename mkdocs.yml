@@ -1,12 +1,10 @@
-site_name: "PPS Unidad 0 - TU_NOMBRE"
+site_name: PPS Unidad 1 - Tarea RA1
 
 nav:
   - Inicio: index.md
-  - Git: git.md
-  - GitHub Actions: gitActions.md
-  - GitHub Pages: gitPages.md
-  - Docker: docker.md
-  - Conclusiones: conclusiones.md
+  - Elementos de Python: python.md
+  - Ejecución y Depuración: ejecucion.md
+  - Pruebas: pruebas.md
+  - Ejecución en Sandbox: sandbox.md
+  - Reflexión: reflexion.md
 
-theme:
-  name: material
