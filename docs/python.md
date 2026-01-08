@@ -275,3 +275,50 @@ class Lavadero:
         print("\n----------------------------------------")
 
 
+    # MÉTODO AUXILIAR PARA PRUEBAS / TESTS: Este método NO forma parte del funcionamiento real del lavadero. Su único propósito es facilitar pruebas unitarias y
+    # comprobaciones automáticas del flujo de estados del sistema.
+
+    def ejecutar_y_obtener_fases(self, prelavado, secado, encerado):
+        """
+        Ejecuta un ciclo completo de lavado y devuelve
+        una lista con todas las fases visitadas.
+
+        Este método es muy útil para:
+        - Verificar que el flujo de estados es correcto
+        - Detectar errores en la máquina de estados
+        - Realizar pruebas unitarias automatizadas
+
+        Parámetros:
+        - prelavado: indica si hay prelavado a mano
+        - secado: indica si hay secado a mano
+        - encerado: indica si hay encerado
+
+        Retorna:
+        - Lista de enteros con las fases visitadas
+        """
+
+        # Se inicia el lavado con las opciones indicadas
+        self.hacerLavado(prelavado, secado, encerado)
+
+        # Se guarda la fase inicial
+        fases_visitadas = [self.fase]
+
+        # Mientras el lavadero esté ocupado, seguimos avanzando fases
+        while self.ocupado:
+
+            # Medida de seguridad para evitar bucles infinitos
+            # en caso de que exista un error en la lógica
+            if len(fases_visitadas) > 15:
+                raise Exception(
+                    "Bucle infinito detectado en la simulación de fases."
+                )
+
+            # Avanzamos a la siguiente fase
+            self.avanzarFase()
+
+            # Guardamos la nueva fase alcanzada
+            fases_visitadas.append(self.fase)
+
+        # Devolvemos la lista completa de fases recorridas
+        return fases_visitadas
+
