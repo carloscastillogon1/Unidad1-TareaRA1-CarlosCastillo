@@ -276,7 +276,7 @@ class Lavadero:
 
 
     # MÉTODO AUXILIAR PARA PRUEBAS / TESTS: Este método NO forma parte del funcionamiento real del lavadero. Su único propósito es facilitar pruebas unitarias y
-    # comprobaciones automáticas del flujo de estados del sistema.
+    comprobaciones automáticas del flujo de estados del sistema.
 
     def ejecutar_y_obtener_fases(self, prelavado, secado, encerado):
         """
@@ -321,4 +321,5 @@ class Lavadero:
 
         # Devolvemos la lista completa de fases recorridas
         return fases_visitadas
+
 
