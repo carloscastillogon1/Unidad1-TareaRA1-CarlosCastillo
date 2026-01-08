@@ -6,10 +6,11 @@
 
 ## Una vez abierta la carpeta donde se encuentra la app, la cual es ***main_app.py***, lo que haremos será ejecutarla, para ello, clickamos en el boton de play situado en la esquina superior derecha:
 
-![Ejecutar](images/ejecucion.png)
+![Ejecutar](images/Ejecutar.png)
 
 ## Pero antes de ejecutarlo, lo que debemos hacer es leer las premisas con las cuales se ha diseñado la app, y corregir los errores que encontremos en el código, debido a que si ejecutamos la app así, nos saldrá un error bastante rápido. 
 
 ### Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probaremos a ejecutar la app a ver si todo funciona correctamente:
 
 - Error 1: 
+
