@@ -50,7 +50,8 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
   Para solucionar esto, cambiaremos la parte donde se encuentra ***self.__fase = self.FASE_SECADO_AUTOMATICO*** y la pondremos donde está el ***self.__fase =
   self.FASE_SECADO_MANO***:
 
-  ![Solsecado](images/Solrsecado.png)
+  ![Solsecado](images/Solsecado.png)
+
 
 
 
