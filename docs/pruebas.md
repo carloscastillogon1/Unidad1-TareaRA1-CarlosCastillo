@@ -79,4 +79,10 @@ Para ejecutarlo, abriremos la consola, y escribiremos ***py test_lavadero_unitte
    ![pruebas](images/pruebas.png)
 
    
+Como podemos observar, todo ha funcionado correctamente, lo cual indica que hemos solventado todos los errores que contenía el código en un principio, y por lo
+tanto, el programa estaría listo para ponerse en marcha en un negocio real.
 
+Los 14 test se han ejecutado con éxito, los tests de "flujo" confirman que el coche pasa exactamente por las fases que debe según los extras elegidos y no se
+desvían a otros, los mensajes de (COBRADO: ...) que podemos observar al final confirman que los precios (6.50€, 7.20€, 8.70€, etc.) son los correctos tras las
+correcciones que he realizado anteriormente, los tests 2 y 3 confirman que el programa lanza las excepciones adecuadas cuando se intenta hacer algo prohibido
+(como encerar sin secar).
