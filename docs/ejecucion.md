@@ -10,6 +10,10 @@ Una vez abierta la carpeta donde se encuentra la app, la cual es ***main_app.py*
 
 Pero antes de ejecutarlo, lo que debemos hacer es leer las premisas con las cuales se ha diseñado la app, y corregir los errores que encontremos en el código, debido a que si ejecutamos la app así, nos saldrá un error bastante rápido. 
 
+
+## Solución de errores:
+
+
 Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probaremos a ejecutar la app a ver si todo funciona correctamente:
 
 ----
@@ -102,7 +106,66 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
 
 
    ![hacerLavadocorregido](images/hacerLavadocorregido.png)
-   
+
+
+## Ejecución del código
+
+  Con las correcciones ya hechas, podemos pasar a ejecutar el código, a ver si nos proporciona fallos. Para ello, debemos ir al ***main_app.py***, el cual
+  ejecutará la aplicación basándose en el código de ***Lavadero***. Después, haremos click en el botón de play situado en la esquina derecha superior de Visual:
+
+  
+  ![Ejecucion](images/Ejecucion.png)
+
+
+  Una vez ejecutado, podemos observar 3 cosas. Vamos por partes:
+
+  1. Éxito en la Lógica de Negocio (Ejemplos 1 y 2)
+
+     **Ejemplo 1 (Todo incluido):** Ha pasado por las fases 0, 1, 2, 3, 4, 5, 7, 8, 0. Los ingresos han sido 8.70 €. Esto coincide exactamente con las premisas
+     del enunciado (5.00 base + 1.50 prelavado + 1.00 secado + 1.20 encerado).
+
+     **Ejemplo 2 (Sin extras):** Ha pasado por 0, 1, 3, 4, 5, 6, 0. Ha saltado la fase 2 (prelavado) y la fase 7-8 (manual/encerado), yendo directo a la 6
+     (automático). Los ingresos acumulados subieron a 13.70 € (8.70 + 5.00). Esto quiere decir que la acumulación funciona.
+
+
+     ![Eje1](images/Eje1.png)
+     
+     ![Eje2](images/Eje2.png)
+
+----
+
+  2. Validación de Errores (Ejemplo 3)
+     
+     El programa ha detectado que el cliente quería encerado sin secado a mano y ha lanzado el ValueError con el mensaje: "No se puede encerar el coche sin
+     secado a mano". Esto demuestra que la corrección que hemos hecho con anterioridad al RuntimeError es correcta y lanza el mensaje correcto.
+
+     ![Eje3](images/Eje3.png)
+
+
+----
+
+  3. El error de Python (Ejemplo 4)
+     Inesperadamente, el programa se ha detenido por un TypeError. Python nos señala: missing 1 required positional argument: 'encerado' Esto puede deberse a un
+     error en el main_app.py, el cual no hemos comprobado antes de ejecutarlo.
+     
+
+     ![Eje4](images/Eje4.png)
+
+
+     Echando un vistazo al main_app.py, parece ser que sucede porque la función
+     ejecutarSimulacion espera 4 cosas y el ejemplo 4 solo le da 3. Habría que corregir la siguiente línea del main_app.py:
+
+
+     ![ErrorMain](images/ErrorMain.png)
+
+     Parece ser que está definido así: ***def ejecutarSimulacion(lavadero, prelavado, secado_mano, encerado):***
+
+     Esto quiere decir que se nos obliga a proporcionarle 4 argumentos sí o sí, pero en el Ejemplo 4 sólo sxe proporcionan 3, ya que ***encerado=false***. Por lo
+     tanto, va a dar un error ya que se queda esperando a dicho argumento.
+
+     Para solucionar esto, lo que haremos es modificar dicha línea, especificando que encerado también puede ser ***false***:
+
+     
 
 
 
