@@ -88,6 +88,21 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
   
    Como podemos observar, ahora sí se encuentra bien identado y será reconocible.
 
+----
+
+-  **Error 6: Referencia a Método Inexistente**
+
+   En este mismo bloque de código que acabamos de corregir, se hace referencia a un módulo que no existe, el cual es ***_hacer_lavado***. Este módulo es
+   incorrecto, el módulo correcto sería ***hacerLavado***:
+
+   ![hacerLavado](images/hacerLavado.png)
+
+
+   Para corregirlo, simplemente lo cambiamos a ***hacerLavado***
+
+
+   ![hacerLavadocorregido](images/hacerLavadocorregido.png)
+   
 
 
 
