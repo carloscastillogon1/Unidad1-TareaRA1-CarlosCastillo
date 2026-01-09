@@ -404,19 +404,33 @@
 <p>Pero antes de ejecutarlo, lo que debemos hacer es leer las premisas con las cuales se ha diseñado la app, y corregir los errores que encontremos en el código, debido a que si ejecutamos la app así, nos saldrá un error bastante rápido. </p>
 <p>Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probaremos a ejecutar la app a ver si todo funciona correctamente:</p>
 <ul>
-<li>Error 1: RuntimeError</li>
+<li><strong>Error 1: RuntimeError</strong></li>
 </ul>
 <p><img alt="Runtime" src="../images/Runtimeerror.png" /></p>
-<p>Como podemos observar, aparece un RuntimeError cuando el lavadero está ocupado, mientras las premisas con las cuales se crearon la app nos indica: <em>Cuando se intenta hacer un lavado mientras que otro ya está en marcha, se produce una ValueError</em>.</p>
+<p>Como podemos observar, aparece un RuntimeError cuando el lavadero está ocupado, mientras las premisas con las cuales se crearon la app nos indica: <em>Cuando se
+  intenta hacer un lavado mientras que otro ya está en marcha, se produce una ValueError</em>.</p>
 <p>Para corregir este error, simplemente cambiamos <strong><em>RuntimeError</em></strong> por <strong><em>ValueError</em></strong>:</p>
 <p><img alt="Value" src="../images/Valueerror.png" /></p>
 <ul>
-<li>Error 2: Error en tarifas de secado a mano y encerado</li>
+<li><strong>Error 2: Error en tarifas de secado a mano y encerado</strong></li>
 </ul>
 <p>Según las premisas del enunciado del ejercicio, la suma de <strong>lavado + secado a mano</strong> reportaría al lavadero unas ganancias de <strong>6€</strong>, si a esto le añadimos <strong>encerado</strong>, sería un total de <strong>7,20€</strong>.</p>
 <p>Esto quiere decir que el precio del <strong>secado a mano</strong> debe ser de <strong>1€</strong>, mientras que el del <strong>encerado</strong> debe ser de <strong>1,20€</strong>.</p>
 <p>El error está en que en el código, las tarifas vienen al revés, costando <strong>1,20€</strong> el <strong>secado a mano</strong> y <strong>1€</strong> el <strong>encerado</strong>:</p>
 <p><img alt="Tarifa" src="../images/Errortarifa.png" /></p>
+<p>Para corregir este error, simplemente lo que haremos será cambiar estos valores, como antes he mencionado, el valor del secado a mano le corresponde al valor
+   del encerado y viceversa:</p>
+<p><img alt="SolTarifa" src="images/Soltarifa.png" /></p>
+<ul>
+<li><strong>Error 3: Error de lógica en fase de secado a mano y automático</strong></li>
+</ul>
+<p>En el código, aparece un error en la transición de una fase a otra. Según el código, cuando estamos en la <strong><em>fase de rodillos</em></strong>, si seleccionamos <strong><em>secado a
+  mano</em></strong>, nos lleva a <strong><em>secado automático</em></strong>. Esto en ningún caso debería de ser así, puesto que si seleccionamos <strong><em>secado a mano</em></strong>, deberíamos ir a <strong><em>secado
+  a mano</em></strong>:</p>
+<p><img alt="Errorsecado" src="images/Errorsecado.png" /></p>
+<p>Para solucionar esto, cambiaremos la parte donde se encuentra <strong><em>self.__fase = self.FASE_SECADO_AUTOMATICO</em></strong> y la pondremos donde está el <strong><em>self.__fase =
+  self.FASE_SECADO_MANO</em></strong>:</p>
+<p><img alt="Solsecado" src="images/Solrsecado.png" /></p>
 
 
 
