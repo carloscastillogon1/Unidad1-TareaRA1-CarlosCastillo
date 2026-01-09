@@ -24,6 +24,14 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
   
 -  Error 2: Error en tarifas de secado a mano y encerado
 
+   Según las premisas del enunciado del ejercicio, la suma de **lavado + secado a mano** reportaría al lavadero unas ganancias de **6€**, si a esto le añadimos **encerado**, sería un total de **7,20€**.
+
+   Esto quiere decir que el precio del **secado a mano** debe ser de **1€**, mientras que el del **encerado** debe ser de **1,20€**.
+
+   El error está en que en el código, las tarifas vienen al revés, costando **1,20€** el **secado a mano** y **1€** el **encerado**:
+
+   ![Tarifa](images/Errortarifa.png)
+
 
 
 
