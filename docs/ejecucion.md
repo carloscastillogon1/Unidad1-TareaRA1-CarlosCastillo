@@ -145,6 +145,7 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
 ----
 
   3. El error de Python (Ejemplo 4)
+     
      Inesperadamente, el programa se ha detenido por un TypeError. Python nos señala: missing 1 required positional argument: 'encerado' Esto puede deberse a un
      error en el main_app.py, el cual no hemos comprobado antes de ejecutarlo.
      
@@ -171,6 +172,7 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
      
 
      
+
 
 
 
