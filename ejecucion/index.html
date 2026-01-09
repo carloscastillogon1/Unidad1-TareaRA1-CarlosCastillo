@@ -587,7 +587,7 @@
 <p>El error de Python (Ejemplo 4)
      Inesperadamente, el programa se ha detenido por un TypeError. Python nos señala: missing 1 required positional argument: 'encerado' Esto puede deberse a un
      error en el main_app.py, el cual no hemos comprobado antes de ejecutarlo.</p>
-<p><img alt="Eje4" src="images/Eje4.png" /></p>
+<p><img alt="Eje4" src="../images/Eje4error.png" /></p>
 <p>Echando un vistazo al main_app.py, parece ser que sucede porque la función
  ejecutarSimulacion espera 4 cosas y el ejemplo 4 solo le da 3. Habría que corregir la siguiente línea del main_app.py:</p>
 <p><img alt="ErrorMain" src="../images/ErrorMain.png" /></p>
@@ -595,6 +595,7 @@
 <p>Esto quiere decir que se nos obliga a proporcionarle 4 argumentos sí o sí, pero en el Ejemplo 4 sólo sxe proporcionan 3, ya que <strong><em>encerado=false</em></strong>. Por lo
  tanto, va a dar un error ya que se queda esperando a dicho argumento.</p>
 <p>Para solucionar esto, lo que haremos es modificar dicha línea, especificando que encerado también puede ser <strong><em>false</em></strong>:</p>
+<p><img alt="MainCorregido" src="images/MainCorregido.png" /></p>
 </li>
 </ol>
 
