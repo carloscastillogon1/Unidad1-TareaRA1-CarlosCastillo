@@ -12,17 +12,18 @@ Pero antes de ejecutarlo, lo que debemos hacer es leer las premisas con las cual
 
 Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probaremos a ejecutar la app a ver si todo funciona correctamente:
 
-- Error 1: RuntimeError
+- **Error 1: RuntimeError**
   
   ![Runtime](images/Runtimeerror.png)
 
-  Como podemos observar, aparece un RuntimeError cuando el lavadero está ocupado, mientras las premisas con las cuales se crearon la app nos indica: *Cuando se intenta hacer un lavado mientras que otro ya está en marcha, se produce una ValueError*.
+  Como podemos observar, aparece un RuntimeError cuando el lavadero está ocupado, mientras las premisas con las cuales se crearon la app nos indica: *Cuando se
+  intenta hacer un lavado mientras que otro ya está en marcha, se produce una ValueError*.
 
   Para corregir este error, simplemente cambiamos ***RuntimeError*** por ***ValueError***:
   
    ![Value](images/Valueerror.png)
   
--  Error 2: Error en tarifas de secado a mano y encerado
+-  **Error 2: Error en tarifas de secado a mano y encerado**
 
    Según las premisas del enunciado del ejercicio, la suma de **lavado + secado a mano** reportaría al lavadero unas ganancias de **6€**, si a esto le añadimos **encerado**, sería un total de **7,20€**.
 
@@ -32,7 +33,24 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
 
    ![Tarifa](images/Errortarifa.png)
 
+   Para corregir este error, simplemente lo que haremos será cambiar estos valores, como antes he mencionado, el valor del secado a mano le corresponde al valor
+   del encerado y viceversa:
 
+   ![SolTarifa](images/Soltarifa.png)
+
+
+-  **Error 3: Error de lógica en fase de secado a mano y automático**
+
+  En el código, aparece un error en la transición de una fase a otra. Según el código, cuando estamos en la ***fase de rodillos***, si seleccionamos ***secado a
+  mano***, nos lleva a ***secado automático***. Esto en ningún caso debería de ser así, puesto que si seleccionamos ***secado a mano***, deberíamos ir a ***secado
+  a mano***:
+
+  ![Errorsecado](images/Errorsecado.png)
+
+  Para solucionar esto, cambiaremos la parte donde se encuentra ***self.__fase = self.FASE_SECADO_AUTOMATICO*** y la pondremos donde está el ***self.__fase =
+  self.FASE_SECADO_MANO***:
+
+  ![Solsecado](images/Solrsecado.png)
 
 
 
