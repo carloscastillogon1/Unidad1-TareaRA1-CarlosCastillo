@@ -119,9 +119,11 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
 
   Una vez ejecutado, podemos observar 3 cosas. Vamos por partes:
 
-  1. Éxito en la Lógica de Negocio (Ejemplos 1 y 2)
+----
 
-     **Ejemplo 1 (Todo incluido):** Ha pasado por las fases 0, 1, 2, 3, 4, 5, 7, 8, 0. Los ingresos han sido 8.70 €. Esto coincide exactamente con las premisas
+1. Éxito en la Lógica de Negocio (Ejemplos 1 y 2)
+
+    **Ejemplo 1 (Todo incluido):** Ha pasado por las fases 0, 1, 2, 3, 4, 5, 7, 8, 0. Los ingresos han sido 8.70 €. Esto coincide exactamente con las premisas
      del enunciado (5.00 base + 1.50 prelavado + 1.00 secado + 1.20 encerado).
 
      **Ejemplo 2 (Sin extras):** Ha pasado por 0, 1, 3, 4, 5, 6, 0. Ha saltado la fase 2 (prelavado) y la fase 7-8 (manual/encerado), yendo directo a la 6
@@ -134,7 +136,7 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
 
 ----
 
-  2. Validación de Errores (Ejemplo 3)
+2. Validación de Errores (Ejemplo 3)
      
      El programa ha detectado que el cliente quería encerado sin secado a mano y ha lanzado el ValueError con el mensaje: "No se puede encerar el coche sin
      secado a mano". Esto demuestra que la corrección que hemos hecho con anterioridad al RuntimeError es correcta y lanza el mensaje correcto.
@@ -144,7 +146,7 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
 
 ----
 
-  3. El error de Python (Ejemplo 4)
+3. El error de Python (Ejemplo 4)
      
      Inesperadamente, el programa se ha detenido por un TypeError. Python nos señala: missing 1 required positional argument: 'encerado' Esto puede deberse a un
      error en el main_app.py, el cual no hemos comprobado antes de ejecutarlo.
@@ -170,8 +172,20 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
       ![MainCorregido](images/MainCorregido.png)
 
      
+----
 
-     
+Ahora, podremos pasar a ejecutarlo. Con esta solución que hemos realizado en esa línea, no nos debería dar ningún error y se debería ejecutar al completo:
+
+
+  ![Ejecucioncorrecta](images/Ejecucioncorrecta.png)
+
+
+  Como podemos comprobar, hemos logrado solucionar el error con el ***Ejemplo 4***. Al hacer el parámetro opcional ***(encerado=False)***, el programa ya no se
+  detiene. Los ingresos acumulados también son correctos, el Ejemplo 3 no suma dinero porque el error se detecta antes de cobrar, lo cual es el comportamiento
+  correcto en una pasarela de pago o sistema de cobro real. Todas las fases coinciden con las premisas.
+    
+
+
 
 
 
