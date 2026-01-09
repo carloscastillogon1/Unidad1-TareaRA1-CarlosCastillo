@@ -65,7 +65,19 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
   ![Solencerado](images/Solencerado.png)
 
   
-  
+-  **Error 5: Función ***ejecutar_y_obtener_fases*** está fuera de la clase**
+
+   Aunque como menciona el código, esta función no es parte del lavadero real, aún así, no se encuentra identada a la clase. ¿Qué problema ocasionará esto? Pues
+   Que al usar ***self***, el intérprete fallará porque no la reconoce como parte de **Lavadero**:
+
+   [Def](images/Def.png)
+
+   Para solucionar esto, debemos mover el bloque hacia la derecha para que coincida con la identación de la clase:
+
+   [Defcorregida](images/Defcorregida.png)
+
+   Como podemos observar, ahora sí se encuentra bien identado y será reconocible.
+
 
 
 
