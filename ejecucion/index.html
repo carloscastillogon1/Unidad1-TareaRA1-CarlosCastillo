@@ -420,14 +420,14 @@
 <p><img alt="Tarifa" src="../images/Errortarifa.png" /></p>
 <p>Para corregir este error, simplemente lo que haremos será cambiar estos valores, como antes he mencionado, el valor del secado a mano le corresponde al valor
    del encerado y viceversa:</p>
-<p><img alt="SolTarifa" src="images/Soltarifa.png" /></p>
+<p><img alt="SolTarifa" src="../images/Soltarifa.png" /></p>
 <ul>
 <li><strong>Error 3: Error de lógica en fase de secado a mano y automático</strong></li>
 </ul>
 <p>En el código, aparece un error en la transición de una fase a otra. Según el código, cuando estamos en la <strong><em>fase de rodillos</em></strong>, si seleccionamos <strong><em>secado a
   mano</em></strong>, nos lleva a <strong><em>secado automático</em></strong>. Esto en ningún caso debería de ser así, puesto que si seleccionamos <strong><em>secado a mano</em></strong>, deberíamos ir a <strong><em>secado
   a mano</em></strong>:</p>
-<p><img alt="Errorsecado" src="images/Errorsecado.png" /></p>
+<p><img alt="Errorsecado" src="../images/Errorsecado.png" /></p>
 <p>Para solucionar esto, cambiaremos la parte donde se encuentra <strong><em>self.__fase = self.FASE_SECADO_AUTOMATICO</em></strong> y la pondremos donde está el <strong><em>self.__fase =
   self.FASE_SECADO_MANO</em></strong>:</p>
 <p><img alt="Solsecado" src="images/Solrsecado.png" /></p>
