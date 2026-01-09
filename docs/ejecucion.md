@@ -180,10 +180,19 @@ Ahora, podremos pasar a ejecutarlo. Con esta solución que hemos realizado en es
   ![Ejecucioncorrecta](images/Ejecucioncorrecta.png)
 
 
-  Como podemos comprobar, hemos logrado solucionar el error con el ***Ejemplo 4***. Al hacer el parámetro opcional ***(encerado=False)***, el programa ya no se
-  detiene. Los ingresos acumulados también son correctos, el Ejemplo 3 no suma dinero porque el error se detecta antes de cobrar, lo cual es el comportamiento
-  correcto en una pasarela de pago o sistema de cobro real. Todas las fases coinciden con las premisas.
+  Como podemos comprobar, hemos logrado solucionar el error con el ***Ejemplo 4***. 
+  
+  - Al hacer el parámetro opcional ***(encerado=False)***, el programa ya no se
+  detiene.
+  
+  - Los ingresos acumulados también son correctos, el Ejemplo 3 no suma dinero porque el error se detecta antes de cobrar, lo cual es el comportamiento
+  correcto en un sistema de cobro real.
+
+  - Todas las fases coinciden con las premisas que se indican en el enunciado.
+
+  
     
+
 
 
 
