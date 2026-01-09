@@ -431,6 +431,14 @@
 <p>Para solucionar esto, cambiaremos la parte donde se encuentra <strong><em>self.__fase = self.FASE_SECADO_AUTOMATICO</em></strong> y la pondremos donde está el <strong><em>self.__fase =
   self.FASE_SECADO_MANO</em></strong>:</p>
 <p><img alt="Solsecado" src="../images/Solsecado.png" /></p>
+<ul>
+<li><strong>Error 4: Interrupción hacia el encerado</strong></li>
+</ul>
+<p>Como podemos observar en el código proporcionado, siempre que seleccionamos <strong><em>secado a mano</em></strong>, se llama a <strong><em>terminar</em></strong>. Esto no debería ser así, ya que nos
+  debería dar opción a pasar al <strong><em>encerado</em></strong>:</p>
+<p><img alt="Fallosecado" src="images/Fallosecado.png" /></p>
+<p>Para solucionarlo, debemos añadir la opción de que nos deje acceder a la fase 8, la cual es <strong><em>encerado</em></strong>:</p>
+<p><img alt="Solencerado" src="images/Solencerado.png" /></p>
 
 
 
