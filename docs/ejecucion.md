@@ -53,7 +53,19 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
   ![Solsecado](images/Solsecado.png)
 
 
+-  **Error 4: Interrupción hacia el encerado**
 
+  Como podemos observar en el código proporcionado, siempre que seleccionamos ***secado a mano***, se llama a ***terminar***. Esto no debería ser así, ya que nos
+  debería dar opción a pasar al ***encerado***:
+
+  ![Fallosecado](images/Fallosecado.png)
+
+  Para solucionarlo, debemos añadir la opción de que nos deje acceder a la fase 8, la cual es ***encerado***:
+
+  ![Solencerado](images/Solencerado.png)
+
+  
+  
 
 
 
