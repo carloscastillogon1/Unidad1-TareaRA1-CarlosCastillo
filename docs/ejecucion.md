@@ -83,8 +83,11 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
 
    Para solucionar esto, debemos mover el bloque hacia la derecha para que coincida con la identación de la clase:
 
+   ![Defcorregido](images/Defcorregido.png)
+  
   
    Como podemos observar, ahora sí se encuentra bien identado y será reconocible.
+
 
 
 
