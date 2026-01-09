@@ -149,7 +149,7 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
      error en el main_app.py, el cual no hemos comprobado antes de ejecutarlo.
      
 
-     ![Eje4](images/Eje4.png)
+     ![Eje4](images/Eje4error.png)
 
 
      Echando un vistazo al main_app.py, parece ser que sucede porque la función
@@ -165,7 +165,13 @@ Por lo tanto, lo que vamos a hacer es corregir los errores, y después, probarem
 
      Para solucionar esto, lo que haremos es modificar dicha línea, especificando que encerado también puede ser ***false***:
 
+
+      ![MainCorregido](images/MainCorregido.png)
+
      
+
+     
+
 
 
 
