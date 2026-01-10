@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#reflexion-personal-comparacion-de-la-infraestructura-de-seguridad-de-los-lenguajes" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -331,6 +336,24 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reflexión
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -347,6 +370,45 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reflexion-personal-comparacion-de-la-infraestructura-de-seguridad-de-los-lenguajes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflexión personal: Comparación de la infraestructura de seguridad de los lenguajes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión final
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -370,6 +432,36 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reflexion-personal-comparacion-de-la-infraestructura-de-seguridad-de-los-lenguajes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflexión personal: Comparación de la infraestructura de seguridad de los lenguajes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión final
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -387,7 +479,43 @@
 
   <h1>Reflexión</h1>
 
-
+<h2 id="reflexion-personal-comparacion-de-la-infraestructura-de-seguridad-de-los-lenguajes">Reflexión personal: Comparación de la infraestructura de seguridad de los lenguajes</h2>
+<p>Después de desarrollar esta aplicación y estudiar la teoría, queda claro que la seguridad de un programa empieza por el lenguaje que elegimos. No todos los lenguajes
+protegen el sistema de la misma forma:</p>
+<ol>
+<li><strong>La gestión de la memoria</strong></li>
+</ol>
+<p>Existen lenguajes como C o C++ donde el programador tiene el control total de la memoria del ordenador. Esto los hace muy rápidos, pero también muy peligrosos. 
+Un error común, como el desbordamiento de búfer, puede permitir que un atacante tome el control del sistema. Si hubiera programado el lavadero en C, cualquier fallo
+al introducir datos podría haber bloqueado la máquina.</p>
+<p>En cambio, Python (el lenguaje que he usado) gestiona la memoria de forma automática. Tiene un sistema llamado Garbage Collector que se encarga de limpiar lo que no
+se usa y evita que el programador cometa esos errores graves de memoria. Por eso se dice que es un lenguaje "seguro de memoria".</p>
+<ol>
+<li><strong>Lenguajes modernos y seguros (Rust)</strong></li>
+</ol>
+<p>Es interesante mencionar lenguajes más nuevos como Rust. Este lenguaje intenta lo mejor de los dos mundos: es tan rápido como C pero mucho más seguro.
+Su diseño impide que el programa se ejecute si detecta que hay un riesgo de seguridad en la memoria. Es una opción que se está usando mucho hoy en día para
+infraestructuras críticas.</p>
+<ol>
+<li><strong>Tipado de datos</strong></li>
+</ol>
+<p>También influye cómo el lenguaje trata los datos:</p>
+<ul>
+<li>
+<p><strong>Lenguajes como Python:</strong> Son flexibles, pero a veces los errores de tipo aparecen solo cuando el programa ya se está ejecutando
+  (por ejemplo, si el usuario escribe letras donde el menú espera un número).</p>
+</li>
+<li>
+<p><strong>Lenguajes como Java:</strong> Son más estrictos y te obligan a definir cada dato desde el principio, lo que ayuda a evitar fallos lógicos antes de que el programa se
+  ponga en marcha.</p>
+</li>
+</ul>
+<h2 id="conclusion-final">Conclusión final</h2>
+<p>En mi opinión, ningún lenguaje es 100% invulnerable, pero usar Python facilita mucho crear un código resistente. Me ha permitido centrarme en los errores del
+usuario (el manejo de excepciones) sin tener que preocuparme por fallos complejos del sistema operativo.</p>
+<p>Sin embargo, lo más importante que nos enseña esta práctica es que la seguridad debe ir por capas. Aunque usemos un lenguaje seguro como Python, es necesario usar 
+herramientas extra de Sandbox como, por ejemplo, Docker. La combinación de un lenguaje con gestión automática de memoria y un entorno aislado por contenedores es lo
+que realmente garantiza una puesta en producción segura.</p>
 
 
 
