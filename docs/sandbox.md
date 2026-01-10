@@ -28,13 +28,13 @@ habría que crear un Dockerfile en el cual vamos a configurar el contenedor Dock
 
 ***Una vez creado el Dockerfile, haré uso de los siguientes comandos:***
 
-- sudo docker build -t lavadero-sandbox .
+- **sudo docker build -t lavadero-sandbox .**
 
 
 ![Build](images/Build.png)
 
   
-- sudo docker run --rm -it lavadero-sandbox
+- **sudo docker run --rm -it lavadero-sandbox**
 
 
 ![ejecucion](images/ejecucion.png)
@@ -43,7 +43,8 @@ habría que crear un Dockerfile en el cual vamos a configurar el contenedor Dock
 ![completo](images/completo.png)
 
 
-Como podemos observar, la aplicación se ha ejecutado correctamente en un entorno aislado, en este caso, un contenedor de Docker, el cual en ningún momento
-interactúa con nuestro sistema, lo cual quiere decir que si existiera alguna vulnerabilidad, únicamente afectaría al contenedor y no a nuestro sistema real.
-Esta práctica es muy buena en un entorno de producción, ya que nos proporciona un buen nivel de seguridad.
+Como podemos observar, la aplicación se ha ejecutado correctamente en un entorno aislado. En este caso ha sido en un contenedor de Docker, el cual en ningún
+momento interactúa con nuestro sistema, lo que nos quiere decir que si existiera alguna vulnerabilidad, únicamente afectaría al contenedor y no a nuestro sistema
+real. Esta práctica es muy buena en un entorno de producción, ya que nos proporciona un buen nivel de seguridad.
+
 
