@@ -28,22 +28,14 @@ A continuación se muestra el código completo del lavadero, acompañado de
 comentarios detallados que explican el funcionamiento de cada parte.
 
 ```python
+# lavadero.py
 class Lavadero:
     """
-    Clase que representa un túnel de lavado de coches.
-
-    Se encarga de:
-    - Controlar el estado interno del lavadero
-    - Gestionar las fases del lavado
-    - Validar reglas de negocio
-    - Calcular y acumular los ingresos
-
-    El flujo del lavado se controla mediante una máquina de estados.
+    Clase que representa un lavadero de coches.
+    Controla el estado del lavado, las fases y los ingresos.
     """
 
-    # CONSTANTES DE FASES, cada constante representa una fase del proceso de lavado.
-
-
+    # Constantes de clase que representan las distintas fases del lavado
     FASE_INACTIVO = 0
     FASE_COBRANDO = 1
     FASE_PRELAVADO_MANO = 2
@@ -56,216 +48,204 @@ class Lavadero:
 
     def __init__(self):
         """
-        Constructor de la clase Lavadero.
-
-        Inicializa todas las variables internas del sistema.
-        El lavadero comienza sin coches y sin ingresos.
+        Constructor de la clase.
+        Se ejecuta automáticamente al crear un objeto Lavadero.
+        Inicializa los atributos del objeto.
         """
 
-        # Dinero total acumulado por los lavados realizados
+        # Atributo privado que guarda el total de ingresos del lavadero
         self.__ingresos = 0.0
 
-        # Fase actual del lavadero
+        # Atributo privado que indica la fase actual del lavado
         self.__fase = self.FASE_INACTIVO
 
-        # Indica si el lavadero está ocupado por un coche
+        # Indica si el lavadero está ocupado o no
         self.__ocupado = False
 
-        # Opciones del lavado actual
+        # Opciones del lavado (todas empiezan desactivadas)
         self.__prelavado_a_mano = False
         self.__secado_a_mano = False
         self.__encerado = False
 
-        # Se fuerza el estado inicial correcto
+        # Se asegura de que el lavadero empieza en estado inactivo
         self.terminar()
 
-    # PROPIEDADES: Permiten consultar el estado del lavadero sin permitir modificaciones externas.
-
+    # Propiedad que permite consultar la fase actual sin modificarla
     @property
     def fase(self):
-        """Devuelve la fase actual del lavadero."""
         return self.__fase
 
+    # Propiedad que devuelve los ingresos acumulados
     @property
     def ingresos(self):
-        """Devuelve los ingresos acumulados."""
         return self.__ingresos
 
+    # Propiedad que indica si el lavadero está ocupado
     @property
     def ocupado(self):
-        """Indica si el lavadero está ocupado."""
         return self.__ocupado
-
+    
+    # Propiedad que indica si se ha elegido prelavado a mano
     @property
     def prelavado_a_mano(self):
-        """Indica si el lavado incluye prelavado a mano."""
         return self.__prelavado_a_mano
 
+    # Propiedad que indica si se ha elegido secado a mano
     @property
     def secado_a_mano(self):
-        """Indica si el lavado incluye secado a mano."""
         return self.__secado_a_mano
 
+    # Propiedad que indica si se ha elegido encerado
     @property
     def encerado(self):
-        """Indica si el lavado incluye encerado."""
         return self.__encerado
-
-    # CONTROL DEL CICLO DE LAVADO
 
     def terminar(self):
         """
-        Finaliza el ciclo de lavado.
-
-        Se usa cuando el coche ha terminado todas las fases.
-        El lavadero vuelve a quedar disponible.
+        Método que finaliza el lavado y reinicia el estado del lavadero.
         """
+
+        # Se vuelve a la fase inactiva
         self.__fase = self.FASE_INACTIVO
+
+        # El lavadero deja de estar ocupado
         self.__ocupado = False
+
+        # Se desactivan todas las opciones del lavado
         self.__prelavado_a_mano = False
         self.__secado_a_mano = False
         self.__encerado = False
-
+    
     def hacerLavado(self, prelavado_a_mano, secado_a_mano, encerado):
         """
-        Inicia un nuevo ciclo de lavado.
-
-        Parámetros:
-        - prelavado_a_mano
-        - secado_a_mano
-        - encerado
-
-        Reglas de negocio:
-        - No se puede iniciar un lavado si el lavadero está ocupado
-        - No se puede encerar sin secado a mano
+        Inicia un nuevo lavado.
+        Comprueba que se cumplan las reglas del negocio antes de empezar.
         """
 
-        # Regla 1: solo un coche a la vez
+        # Si el lavadero ya está ocupado, no se puede iniciar otro lavado
         if self.__ocupado:
-            raise RuntimeError(
-                "No se puede iniciar un nuevo lavado mientras el lavadero está ocupado"
-            )
-
-        # Regla 2: no se permite encerado sin secado a mano
+            raise RuntimeError("No se puede iniciar un nuevo lavado mientras el lavadero está ocupado")
+        
+        # No se permite encerar si no se ha seleccionado secado a mano
         if not secado_a_mano and encerado:
-            raise ValueError(
-                "No se puede encerar el coche sin secado a mano"
-            )
-
-        # Se inicia el ciclo de lavado
+            raise ValueError("No se puede encerar el coche sin secado a mano")
+        
+        # Se inicia el lavado poniendo el lavadero como ocupado
         self.__fase = self.FASE_INACTIVO
         self.__ocupado = True
+
+        # Se guardan las opciones elegidas para este lavado
         self.__prelavado_a_mano = prelavado_a_mano
         self.__secado_a_mano = secado_a_mano
         self.__encerado = encerado
 
-    # COBRO DEL SERVICIO
-
     def _cobrar(self):
         """
-        Calcula el coste del lavado según los servicios seleccionados.
-
-        Precio base: 5.00 €
-        Extras:
-        - Prelavado a mano: +1.50 €
-        - Secado a mano: +1.20 €
-        - Encerado: +1.00 €
-
-        Devuelve el importe cobrado.
+        Método interno que calcula el precio del lavado
+        y suma el importe a los ingresos del lavadero.
         """
+
+        # Precio base del lavado
         coste_lavado = 5.00
-
+        
+        # Si se ha elegido prelavado a mano, se suma su coste
         if self.__prelavado_a_mano:
-            coste_lavado += 1.50
-
+            coste_lavado += 1.50 
+        
+        # Si se ha elegido secado a mano, se suma su coste
         if self.__secado_a_mano:
-            coste_lavado += 1.20
-
+            coste_lavado += 1.20 
+            
+        # Si se ha elegido encerado, se suma su coste
         if self.__encerado:
-            coste_lavado += 1.00
-
-        # Se suman los ingresos al total
+            coste_lavado += 1.00 
+        
+        # Se añade el coste total a los ingresos acumulados
         self.__ingresos += coste_lavado
-        return coste_lavado
 
-    # MÁQUINA DE ESTADOS
+        # Se devuelve el coste del lavado actual
+        return coste_lavado
 
     def avanzarFase(self):
         """
-        Avanza el lavadero a la siguiente fase del proceso.
-
-        Este método debe llamarse repetidamente para simular
-        el avance del coche dentro del túnel de lavado.
+        Avanza el lavado a la siguiente fase según el estado actual.
         """
 
-        # Si no hay coche, no se hace nada
+        # Si el lavadero no está ocupado, no se hace nada
         if not self.__ocupado:
             return
 
-        # Fase 0: Cobro
+        # Fase inicial: se cobra el lavado
         if self.__fase == self.FASE_INACTIVO:
-            coste = self._cobrar()
+            coste_cobrado = self._cobrar()
             self.__fase = self.FASE_COBRANDO
-            print(f"(COBRADO: {coste:.2f} €)", end="")
+            print(f" (COBRADO: {coste_cobrado:.2f} €) ", end="")
 
-        # Fase 1: Prelavado o agua
+        # Después de cobrar, se decide si hay prelavado a mano
         elif self.__fase == self.FASE_COBRANDO:
             if self.__prelavado_a_mano:
                 self.__fase = self.FASE_PRELAVADO_MANO
             else:
-                self.__fase = self.FASE_ECHANDO_AGUA
-
-        # Fase 2: Agua
+                self.__fase = self.FASE_ECHANDO_AGUA 
+        
+        # Transiciones entre fases del lavado
         elif self.__fase == self.FASE_PRELAVADO_MANO:
             self.__fase = self.FASE_ECHANDO_AGUA
-
-        # Fase 3: Jabón
+        
         elif self.__fase == self.FASE_ECHANDO_AGUA:
             self.__fase = self.FASE_ENJABONANDO
 
-        # Fase 4: Rodillos
         elif self.__fase == self.FASE_ENJABONANDO:
             self.__fase = self.FASE_RODILLOS
-
-        # Fase 5: Secado
+        
         elif self.__fase == self.FASE_RODILLOS:
             if self.__secado_a_mano:
                 self.__fase = self.FASE_SECADO_AUTOMATICO
             else:
                 self.__fase = self.FASE_SECADO_MANO
-
-        # Fases finales: Terminar
-        elif self.__fase in (
-            self.FASE_SECADO_AUTOMATICO,
-            self.FASE_SECADO_MANO,
-            self.FASE_ENCERADO
-        ):
+        
+        # Al terminar el secado, el lavado finaliza
+        elif self.__fase == self.FASE_SECADO_AUTOMATICO:
             self.terminar()
-
+        
+        elif self.__fase == self.FASE_SECADO_MANO:
+            self.terminar()
+        
+        elif self.__fase == self.FASE_ENCERADO:
+            self.terminar()
+        
+        # Control de errores por si aparece un estado no válido
         else:
             raise RuntimeError(f"Estado no válido: Fase {self.__fase}")
 
-    # MÉTODOS DE SALIDA
-
     def imprimir_fase(self):
-        """Muestra por pantalla la fase actual."""
+        """
+        Muestra por pantalla el nombre de la fase actual.
+        """
+
+        # Diccionario que relaciona cada fase con un texto descriptivo
         fases_map = {
             self.FASE_INACTIVO: "0 - Inactivo",
             self.FASE_COBRANDO: "1 - Cobrando",
-            self.FASE_PRELAVADO_MANO: "2 - Prelavado a mano",
-            self.FASE_ECHANDO_AGUA: "3 - Echando agua",
+            self.FASE_PRELAVADO_MANO: "2 - Haciendo prelavado a mano",
+            self.FASE_ECHANDO_AGUA: "3 - Echándole agua",
             self.FASE_ENJABONANDO: "4 - Enjabonando",
-            self.FASE_RODILLOS: "5 - Rodillos",
-            self.FASE_SECADO_AUTOMATICO: "6 - Secado automático",
-            self.FASE_SECADO_MANO: "7 - Secado a mano",
-            self.FASE_ENCERADO: "8 - Encerado",
+            self.FASE_RODILLOS: "5 - Pasando rodillos",
+            self.FASE_SECADO_AUTOMATICO: "6 - Haciendo secado automático",
+            self.FASE_SECADO_MANO: "7 - Haciendo secado a mano",
+            self.FASE_ENCERADO: "8 - Encerando a mano",
         }
+
+        # Se imprime la fase actual
         print(fases_map.get(self.__fase, "Estado no válido"), end="")
 
     def imprimir_estado(self):
-        """Imprime el estado completo del lavadero."""
+        """
+        Imprime por pantalla el estado completo del lavadero.
+        """
+
         print("----------------------------------------")
-        print(f"Ingresos acumulados: {self.ingresos:.2f} €")
+        print(f"Ingresos Acumulados: {self.ingresos:.2f} €")
         print(f"Ocupado: {self.ocupado}")
         print(f"Prelavado a mano: {self.prelavado_a_mano}")
         print(f"Secado a mano: {self.secado_a_mano}")
@@ -321,6 +301,7 @@ class Lavadero:
 
         # Devolvemos la lista completa de fases recorridas
         return fases_visitadas
+
 
 
 
