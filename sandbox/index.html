@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#en-este-apartado-ejecutaremos-el-codigo-en-una-sandbox" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -305,6 +310,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejecución en Sandbox
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -322,6 +347,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejecucion-en-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejecución en Sandbox
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -371,6 +426,27 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejecucion-en-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejecución en Sandbox
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -387,9 +463,37 @@
 
 
 
-  <h1>Ejecución en Sandbox</h1>
-
-
+<h1 id="en-este-apartado-ejecutaremos-el-codigo-en-una-sandbox">En este apartado, ejecutaremos el código en una sandbox.</h1>
+<p>Se utiliza una <strong>Sandbox</strong> para ejecutar una aplicación de forma más segura. Como cualquier programa nuevo puede tener fallos o errores de seguridad, el sandbox
+funciona como una “barrera” que limita lo que la aplicación puede hacer. De esta manera, se restringe el acceso al sistema y a los archivos importantes, evitando 
+que un posible ataque o fallo afecte al sistema principal de la computadora.</p>
+<p>En mi caso, he escogido <strong>Docker</strong>, la cual para esta práctica nos vale como sandbox. Docker permite ejecutar aplicaciones dentro de entornos aislados y controlados.
+Cada contenedor incluye la aplicación junto con todas sus dependencias, lo que garantiza que se ejecute de forma consistente independientemente del sistema anfitrión.
+Este aislamiento limita el acceso del contenedor a los recursos del sistema, reduciendo los riesgos de seguridad y evitando que una aplicación con fallos o
+comportamiento malicioso afecte al sistema principal.</p>
+<p>En mi caso, Docker se utilizará sobre un sistema Kali Linux, lo que permite crear y gestionar entornos aislados de manera eficiente para la ejecución de
+herramientas o servicios específicos. He elegido Docker porque facilita la creación, despliegue y eliminación de contenedores de forma rápida, sin necesidad de
+configuraciones complejas. Además, ofrece un buen equilibrio entre aislamiento, rendimiento y facilidad de uso, lo que lo convierte en una solución adecuada para
+implementar medidas de seguridad y pruebas controladas dentro de Kali Linux.</p>
+<hr />
+<h2 id="ejecucion-en-sandbox">Ejecución en Sandbox</h2>
+<p>Para ejecutarlo en la sandbox antes mencionada, Docker, simplemente debemos tener instalado Docker, que en caso de Kali, suele venir ya instalado. Después,
+habría que crear un Dockerfile en el cual vamos a configurar el contenedor Docker. Una vez configurado el Dockerfile, debemos ejecutar dos simples comandos.</p>
+<p><strong>Dockerfile</strong></p>
+<p><img alt="Dockerfile" src="images/Dockerfile.png" /></p>
+<p><strong><em>Una vez creado el Dockerfile, haré uso de los siguientes comandos:</em></strong></p>
+<ul>
+<li>sudo docker build -t lavadero-sandbox .</li>
+</ul>
+<p><img alt="Build" src="images/Build.png" /></p>
+<ul>
+<li>sudo docker run --rm -it lavadero-sandbox</li>
+</ul>
+<p><img alt="ejecucion" src="images/ejecucion.png" /></p>
+<p><img alt="completo" src="images/completo.png" /></p>
+<p>Como podemos observar, la aplicación se ha ejecutado correctamente en un entorno aislado, en este caso, un contenedor de Docker, el cual en ningún momento
+interactúa con nuestro sistema, lo cual quiere decir que si existiera alguna vulnerabilidad, únicamente afectaría al contenedor y no a nuestro sistema real.
+Esta práctica es muy buena en un entorno de producción, ya que nos proporciona un buen nivel de seguridad.</p>
 
 
 
