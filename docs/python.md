@@ -27,7 +27,7 @@ Antes de analizar el código, es importante comprender los siguientes conceptos:
 A continuación se muestra el código completo del lavadero, acompañado de
 comentarios detallados que explican el funcionamiento de cada parte.
 
-```python
+```
 # lavadero.py
 class Lavadero:
     """
@@ -301,6 +301,7 @@ class Lavadero:
 
         # Devolvemos la lista completa de fases recorridas
         return fases_visitadas
+
 
 
 
