@@ -1,4 +1,4 @@
-# En esta sección. lo que vamos a realizar es la depuración del código y la ejecución del mismo, de esta forma, podremos observar sus errores y corregirlos.
+# En esta sección, vamos a realizar la depuración del código y la ejecución del mismo, de esta forma, podremos observar sus errores y corregirlos.
 
 El primer paso será abrir el Visual Studio Code. Una vez dentro, seleccionaremos la carpeta donde se encuentra la app:
 
@@ -192,6 +192,7 @@ Ahora, podremos pasar a ejecutarlo. Con esta solución que hemos realizado en es
 
   
     
+
 
 
 
